@@ -1,0 +1,49 @@
+extend layout
+
+mixin space(i, j)
+	- var space = 0;
+	- space = Math.max(0,(i * 2 - 1) * HEIGHT);
+	if (j%2 == 0)
+		- var style = "height: " + space + "px;";
+		.spacer(style= style)
+	else
+		- space = (space-HEIGHT) / 2
+		- var style = "height: " + space + "px;";
+		.spacer(style= style, class="line")
+		.spacer(style= "height: " + HEIGHT + "px;", class="corner")
+		.spacer(style= style, class="line")
+
+
+mixin match(m)
+	div.match(id= m.mid) 
+		for p in m.players
+			c = ''
+			if (p.result)
+				c = p.result
+			.player(class=c) #{p.name}
+	div(style="clear:both;")
+
+block content
+	- var HEIGHT = 80;
+	#bracket
+		for round, i in bracket
+			rc = ""
+			if (i > 0)
+				- var space = 0;
+				- space = Math.max(0, ((i-1)*2 - 1)) * HEIGHT + (HEIGHT/2);
+				- var style = "margin-top: " + space + "px;";
+			else
+				- rc = "first"
+			.round(class= rc, style= style)
+				for match, j in round
+					side = "up"
+					c = ""
+					if ((i > 0) && (j > 0))
+						+space(i,j)
+					if (j % 2 == 1)
+						- side = "down"
+					.lines
+						.in()
+						if (round.length > 1)
+							.out(class=side)					
+					+match(match)

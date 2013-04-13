@@ -1,0 +1,85 @@
+div#bracket {
+  font-family: arial;
+  width: 2000px;
+}
+
+div.round {
+  float: left;
+  position: relative;
+}
+
+div.match {
+  width: 195px;
+  height: 60px;
+  text-align: center;
+  padding: 10px 5px;
+}
+
+div.player {
+  font-size: 18px;
+  width: 160px;
+  padding: 3px 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  border: 2px solid #999;
+}
+
+div.player.win {
+  border: 2px solid black;
+  background: #EEFFEE;
+  font-weight: 700;
+}
+
+div.player.lose {
+  border: 2px dashed #999;
+  color: #999;
+}
+
+div.hidden {
+  visibility: hidden;
+}
+
+div.highlight {
+  border-color: orange !important;
+}
+
+div.in {
+  float:  left;
+  width:  10px;
+  height: 80px;
+  background: url('/img/line-in.gif') right no-repeat;
+}
+
+div.out {
+  float: right;
+  width:  20px;
+  height: 80px;
+}
+
+div.out.up {
+  background: url('/img/line-up.gif') left no-repeat;
+}
+
+div.round.first div.in {
+  background: none;
+}
+
+div.round.first div.out.up {
+  background: url('/img/line-up-zero.gif') left no-repeat;
+}
+
+div.round.first div.out.down {
+  background: url('/img/line-down-zero.gif') left no-repeat;
+}
+
+div.out.down {
+  background: url('/img/line-down.gif') left no-repeat;
+}
+
+div.spacer.line {
+  background: url('/img/line-space.gif') right repeat-y;
+}
+
+div.spacer.corner {
+  background: url('/img/line-space-corner.gif') right no-repeat;
+}

@@ -1,0 +1,73 @@
+{
+	"name"   : "Test Data",
+	"bracket": [
+		[
+			{ "id": "A", "players": [
+										{"name": "A", "result":"win"}, 
+										{"name": "B", "result":"lose"}
+			]},
+			{ "id": "A", "players": [
+										{"name": "C", "result":"win"}, 
+										{"name": "D", "result":"lose"}
+			]},
+			{ "id": "A", "players": [
+										{"name": "E", "result":"win"}, 
+										{"name": "F", "result":"lose"}
+			]},
+			{ "id": "A", "players": [
+										{"name": "G", "result":"lose"}, 
+										{"name": "H", "result":"win"}
+			]},
+			{ "id": "A", "players": [
+										{"name": "I", "result":"win"}, 
+										{"name": "J", "result":"lose"}
+			]},
+			{ "id": "A", "players": [
+										{"name": "K", "result":"win"}, 
+										{"name": "L", "result":"lose"}
+			]},
+			{ "id": "A", "players": [
+										{"name": "M", "result":"win"}, 
+										{"name": "N", "result":"lose"}
+			]},
+			{ "id": "A", "players": [
+										{"name": "O", "result":"lose"}, 
+										{"name": "P", "result":"win"}
+			]}
+		],
+		[
+			{ "id": "A", "players": [
+										{"name": "A", "result":"win"}, 
+										{"name": "C", "result":"lose"}
+			]},
+			{ "id": "A", "players": [
+										{"name": "E", "result":"win"}, 
+										{"name": "H", "result":"lose"}
+			]},
+			{ "id": "A", "players": [
+										{"name": "I", "result":"win"}, 
+										{"name": "K", "result":"lose"}
+			]},
+			{ "id": "A", "players": [
+										{"name": "M", "result":"lose"}, 
+										{"name": "P", "result":"win"}
+			]}
+		],
+		[
+			{ "id": "A", "players": [
+										{"name": "A", "result":"win"}, 
+										{"name": "E", "result":"lose"}
+			]},
+			{ "id": "A", "players": [
+										{"name": "I", "result":"win"}, 
+										{"name": "P", "result":"lose"}
+			]}
+		],
+		[
+			{ "id": "A", "players": [
+										{"name": "A"}, 
+										{"name": "I"}
+			]}
+		]
+	]
+}
