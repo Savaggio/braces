@@ -76,10 +76,10 @@ div.out.down {
   background: url('/img/line-down.gif') left no-repeat;
 }
 
-div.spacer.line {
+div.spacer div.line {
   background: url('/img/line-space.gif') right repeat-y;
 }
 
-div.spacer.corner {
+div.spacer div.corner {
   background: url('/img/line-space-corner.gif') right no-repeat;
 }

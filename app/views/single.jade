@@ -1,18 +1,20 @@
 extend layout
 
-mixin space(i, j)
-	- var space = 0;
-	- space = Math.max(0,(i * 2 - 1) * HEIGHT);
-	if (j%2 == 0)
+mixin space(cond)
+	if (cond)
 		- var style = "height: " + space + "px;";
 		.spacer(style= style)
 	else
-		- space = (space-HEIGHT) / 2
-		- var style = "height: " + space + "px;";
-		.spacer(style= style, class="line")
-		.spacer(style= "height: " + HEIGHT + "px;", class="corner")
-		.spacer(style= style, class="line")
+		halfspace = (space-HEIGHT) / 2
+		.spacer
+			.line(style=   "height: " + halfspace + "px;")
+			.corner(style= "height: " + HEIGHT + "px;")
+			.line(style=   "height: " + halfspace + "px;")
 
+mixin lines(last)
+	.in()
+	if (!last)
+		.out(attributes)
 
 mixin match(m)
 	div.match(id= m.mid) 
@@ -20,30 +22,34 @@ mixin match(m)
 			c = ''
 			if (p.result)
 				c = p.result
-			.player(class=c) #{p.name}
+			+player(p)(class=c)
 	div(style="clear:both;")
 
+mixin player(p)
+	.player(attributes) #{p.name}
+
 block content
-	- var HEIGHT = 80;
+	HEIGHT = 80
+	space  = 0
 	#bracket
-		for round, i in bracket
+		for round, i in bracket			
 			rc = ""
+
 			if (i > 0)
-				- var space = 0;
-				- space = Math.max(0, ((i-1)*2 - 1)) * HEIGHT + (HEIGHT/2);
-				- var style = "margin-top: " + space + "px;";
+				- space += (HEIGHT*Math.pow(2,i-1))
+				- var style = "margin-top: " + (space/2) + "px;";
 			else
-				- rc = "first"
+				rc = "first"
+
 			.round(class= rc, style= style)
 				for match, j in round
-					side = "up"
-					c = ""
+					cond = j%2 == 0
+					
 					if ((i > 0) && (j > 0))
-						+space(i,j)
-					if (j % 2 == 1)
-						- side = "down"
-					.lines
-						.in()
-						if (round.length > 1)
-							.out(class=side)					
+						+space(cond)
+
+					- var side = (cond ? "up" : "down")
+					- var out  = (round.length<=1 ? "display:none" : null)
+					+lines()(class=side, style=out)
+					
 					+match(match)
